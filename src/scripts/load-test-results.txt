@@ -1,0 +1,30 @@
+loadtest -n 10000 -c 1000 http://localhost:3000
+
+---dummy test ---
+
+on 1 process
+
+Total time:          229.90021372 s
+Requests per second: 43
+Mean latency:        21807.9 ms
+
+
+on more process
+
+Total time:          42.697623117000006 s
+Requests per second: 234
+Mean latency:        4038.3 ms
+
+
+
+loadtest -n 10000 -c 10000 --rps 10 http://localhost:3333/api/v1/chats --data '{"userId":"asdadsds"}' -m GET
+
+// 10000 users in parallel try to send 10 requests per second
+
+INFO Completed requests:  10000
+Total errors:             0
+Total time:               2.596958028 s
+INFO Requests per second: 3851
+INFO Mean latency:        1041.1 ms
+
+

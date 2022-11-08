@@ -1,0 +1,19 @@
+version: "3"
+
+services: 
+  chat_service:
+    build: .
+    restart: always
+    ports: 
+      - "3333:3000"
+
+  the_mongo:
+    image: mongo
+    command: mongod --port 33333
+    ports:
+      - "33333:33333"
+    volumes:
+      - ~/machine-mongo-folder/:/data/db
+
+  the_redis:
+    image: "redis:alpine"
